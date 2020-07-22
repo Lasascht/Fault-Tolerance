@@ -18,7 +18,7 @@
 \subsection{Server Language}\vspace{18pt}
 \subsubsection{Erlang}\vspace{16pt}
 \paragraph{}\vspace{11pt}\justifying
-Erlang is general-purpose, structured, concurrent, dynamically typed programming language for concurrency\cite{}. Originally designed by Ericsson for communications applications such as control switches or transformation protocols, it is ideal for building distributed, real-time soft parallel computing systems. An application run time written in Erlang usually consists of thousands of lightweight processes that communicate with each other through messaging.\\
+Erlang is general-purpose, structured, concurrent, dynamically typed programming language for concurrency\cite{armstrong1993concurrent}. Originally designed by Ericsson for communications applications such as control switches or transformation protocols, it is ideal for building distributed, real-time soft parallel computing systems. An application run time written in Erlang usually consists of thousands of lightweight processes that communicate with each other through messaging.\\
 
 Different from traditional object-oriented language, it has its own advantages: first, it is based on the concurrent process, this process is lightweight and collaborate organized handle affairs, users don't have to worry about specific PV operation, the process is transparent for the operating system, only one process for the operating system is running. Second, each process has its own independent memory and is completely dependent on messaging in inter-process communication. Each process has its own independent mailbox and finds messages to process through pattern matching, and then asynchronously processes them separately. This reduces coupling between processes and increases independence. Erlang also have reliable fault-tolerant mechanism, due to the relatively independent between processes, and can be used in the Erlang some process to link or monitor other process, when the monitored process because of the errors and produce abnormal exit, responsible for the monitoring program will receive the news of the process exits and corresponding processing on these processes. In OTP, Erlang can perform one-to-one or one-to-many monitoring using a monitoring tree. Most importantly, the support for multicore CPUs in Erlang does not require developers to manage the operation of multicore, it is completely transparent to developers, we just need to write programs as usual. Finally, Erlang supports hot code upgrades. In Erlang, code upgrades can be carried out without downtime to achieve hot upgrades in software running. In Erlang versioning, you can keep two different versions of a module, supporting rollback of the version.\\
 
@@ -43,14 +43,18 @@ The purpose of stopping and restarting the entire subsystem is to bring the syst
 
 \subsubsection{Scala with Akka}\vspace{16pt}
 \paragraph{}\vspace{11pt}\justifying
-Akka's fault tolerance mechanism is based on a hierarchy: Akka adds a monitoring policy to the Actor to monitor its children. The following code adds a monitoring policy to the Actor, which monitors the content of the policy: if the child Actor throws an Exception while running, the child Actor is stopped (that is, stopped).\\
+Akka's fault tolerance mechanism is based on a hierarchy: Akka adds a monitoring policy to the Actor to monitor its children. The following code adds a monitoring policy to the Actor, which monitors the content of the policy: if the child Actor throws an Exception while running, the child Actor is stopped.\\
+
+Akka's monitoring policy supports four actions: Stop, Resume, Restart, and Escalate. Stop is to stop the child Actor. Resume tells the child Actor to ignore the message that threw the exception and proceed with subsequent messages. Restart is to stop the child Actor and reinitialize a child Actor to process subsequent messages. Escalate is when the error encountered by the child Actor becomes so severe that it becomes impossible to process it.\\
+
+Akka's monitoring strategy falls into two categories.One is OneForOne.This policy performs the corresponding action only on the child Actor that throws an Exception. The other is AllForOne.If any child Actor throws an Exception, this monitoring policy performs an action on all children actors.
 
 \subsection{Server Test Tools}\vspace{18pt}
 \subsubsection{Chaos Monkey}\vspace{16pt}
 \paragraph{}\vspace{11pt}\justifying
-Chaos Monkey is a tool invented by Netflix in 2011 to test the resilience of its IT infrastructure. It works by deliberately disabling computers on Netflix's production network to test how the rest of the system responds to outages.Chaos Monkey is now part of a larger set of tools called the Ape Army, which is designed to simulate and test responses to various system failures and edge conditions.\\
+Chaos Monkey is a tool invented by Netflix in 2011 to test the resilience of its IT infrastructure\cite{bennett2012chaos}. It works by deliberately disabling computers on Netflix's production network to test how the rest of the system responds to outages.Chaos Monkey is now part of a larger set of tools called the Ape Army, which is designed to simulate and test responses to various system failures and edge conditions.\\
 
 \newpage
 \bibliographystyle{unsrt}
-\bibliography{nonlinear}
+\bibliography{Bibliography}
 \end{document}
