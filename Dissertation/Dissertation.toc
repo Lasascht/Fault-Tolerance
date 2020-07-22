@@ -1,0 +1,15 @@
+\contentsline {section}{\numberline {1}Introduction}{1}%
+\contentsline {section}{\numberline {2}Background}{1}%
+\contentsline {subsection}{\numberline {2.1}Server Language}{1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Erlang}{1}%
+\contentsline {paragraph}{}{1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Scala with Akka}{2}%
+\contentsline {paragraph}{}{2}%
+\contentsline {subsection}{\numberline {2.2}Fault Tolerance}{3}%
+\contentsline {subsubsection}{\numberline {2.2.1}Erlang}{3}%
+\contentsline {paragraph}{}{3}%
+\contentsline {subsubsection}{\numberline {2.2.2}Scala with Akka}{4}%
+\contentsline {paragraph}{}{4}%
+\contentsline {subsection}{\numberline {2.3}Server Test Tools}{4}%
+\contentsline {subsubsection}{\numberline {2.3.1}Chaos Monkey}{4}%
+\contentsline {paragraph}{}{4}%
